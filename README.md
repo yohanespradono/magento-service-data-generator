@@ -30,4 +30,5 @@ Example:
       data: {JSON}
 ```
 
-See order.yml to see the example
+See [order.yml](order.yml) to see the example
+
