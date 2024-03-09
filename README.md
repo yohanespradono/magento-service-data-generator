@@ -8,12 +8,12 @@ Run the script and it will generate all the interface files and the implementati
 The interface files will be put into app/code/Vendor/MyModule/Api/Data/YourClassInterface.php and the implementation file will be put into app/code/Vendor/MyModule/Service/Data/YourClass.php
 
 ## Usage
-Clone or copy the project to [MAGENTO_ROOT]/tools/magento-data-api-generator
+Clone or copy the project to [MAGENTO_ROOT]/tools/magento-service-data-generator
 ```
 $ cd /home/username/YourMagentoRoot/
 $ mkdir tools && cd tools
-$ git clone https://github.com/yohanespradono/magento-data-api-generator.git
-$ cd magento-data-api-generator
+$ git clone https://github.com/yohanespradono/magento-service-data-generator.git
+$ cd magento-service-data-generator
 $ pip3 install pyyaml
 $ python generate.py [YOUR_YAML_FILE]
 ```
