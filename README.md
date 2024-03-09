@@ -50,6 +50,7 @@ app/code/Vendor/MyModule/Service/Data/OrderRequest.php
 app/code/Vendor/MyModule/Service/Data/OrderItem.php
 app/code/Vendor/MyModule/Service/Data/Coordinate.php
 ```
+Test it on your empty module first.
 
 ## Limitations
 This script doesn't currently generate the \<preference\> in the di.xml. You still have to do it manually.
