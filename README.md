@@ -16,6 +16,16 @@ Example:
 
 `python generate.py order.yml`
 
+## Warning
+The sample above will override any files in
+app/code/Vendor/MyModule/Api/Data/OrderRequestInterface.php
+app/code/Vendor/MyModule/Api/Data/OrderItemInterface.php
+app/code/Vendor/MyModule/Api/Data/CoordinateInterface.php
+app/code/Vendor/MyModule/Service/Data/OrderRequest.php
+app/code/Vendor/MyModule/Service/Data/OrderItem.php
+app/code/Vendor/MyModule/Service/Data/Coordinate.php
+
+
 ## YAML FILE
 
 ```yaml
