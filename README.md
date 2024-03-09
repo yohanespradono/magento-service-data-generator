@@ -4,6 +4,7 @@ Generates Magento Data API Getters and Setters
 ## Usage
 Clone or copy the project to [MAGENTO_ROOT]/tools/magento-data-api-generator
 ```
+$ pip3 install pyyaml
 $ cd ./tools/magento-data-api-generator
 $ python generate.py [YOUR_YAML_FILE]
 ```
