@@ -1,5 +1,5 @@
 # magento-data-api-generator
-Generates Magento Data API Getters and Setters
+Generates Magento Data API Getters and Setters. The interface files will be put into app/code/Vendor/MyModule/Api/Data/YourClassInterface.php and the implementation file will be put into app/code/Vendor/MyModule/Service/Data/YourClass.php
 
 ## Usage
 Clone or copy the project to [MAGENTO_ROOT]/tools/magento-data-api-generator
