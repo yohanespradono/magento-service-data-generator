@@ -67,15 +67,15 @@ with open(file) as stream:
         print(exc)
 
 for namespace in content:
-    path = content[namespace]['path'] + '/'
+    ext_path = content[namespace]['ext_path'] + '/'
     iface_path = content[namespace]['iface_path']
     impl_path = content[namespace]['impl_path']
-    if os.path.isdir(root_path + path) == False:
-        print(f'Directory {path} doesn\'t exist')
+    if os.path.isdir(root_path + ext_path) == False:
+        print(f'Directory {ext_path} doesn\'t exist')
         quit()
 
-    ifDir = root_path + path + iface_path + '/'
-    implDir = root_path + path + impl_path + '/'
+    ifDir = root_path + ext_path + iface_path + '/'
+    implDir = root_path + ext_path + impl_path + '/'
     if os.path.isdir(ifDir) == False:
         print(f'Directory {ifDir} doesn\'t exist')
         print('Creating directory')

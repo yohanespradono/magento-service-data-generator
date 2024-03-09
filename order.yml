@@ -1,5 +1,5 @@
 \Yohanes\Biteship:
-  path: app/code/Yohanes/Biteship
+  ext_path: app/code/Yohanes/Biteship
   iface_path: Api/Data
   impl_path: Service/Data
   classes:
