@@ -33,5 +33,5 @@ Example:
 See [order.yml](order.yml) to see the example
 
 ## Limitations
-This script doesn't currently generate the <preference> in the di.xml. You still have to do it manually.
+This script doesn't currently generate the \<preference\> in the di.xml. You still have to do it manually.
 
