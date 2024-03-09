@@ -67,16 +67,15 @@ with open(file) as stream:
         print(exc)
 
 for namespace in content:
-    path = content[namespace]['path']
+    path = content[namespace]['path'] + '/'
     iface_path = content[namespace]['iface_path']
     impl_path = content[namespace]['impl_path']
-    print('Check path')
     if os.path.isdir(root_path + path) == False:
         print(f'Directory {path} doesn\'t exist')
         quit()
 
-    ifDir = root_path + path + '/' + iface_path
-    implDir = root_path + path + '/' + impl_path
+    ifDir = root_path + path + iface_path + '/'
+    implDir = root_path + path + impl_path + '/'
     if os.path.isdir(ifDir) == False:
         print(f'Directory {ifDir} doesn\'t exist')
         print('Creating directory')
@@ -86,13 +85,15 @@ for namespace in content:
         print('Creating directory')
         os.makedirs(implDir)
 
+    # loop through classes
     classes = content[namespace]['classes']
     for classData in classes:
         className = classData['name']
         nullableFields = classData['nullable']
         if not classData.get('type') is None:
             types = classData.get('type')
-            print(types)
+        if not classData.get('comment') is None:
+            comments = classData.get('comment')
 
         fileContent = ''
         for attribute, value in classData['data'].items():
@@ -106,17 +107,22 @@ for namespace in content:
             if attribute in classData['nullable']: nullable = '?'
             MethodName = to_camel_case(attribute)
             variableName = '$'+lower_first_letter(MethodName)
+            comment = ''
+            if not comments.get(attribute) is None:
+                comment = comments.get(attribute)
 
             paramType, declaredType, nullable = getTypes(attribute, value, types)
 
             phpdoc = '''
     /**
+     * ${comment}
+     *
      * @param ${nullable}${paramType} ${variableName}
      * @return $$this
      */
 '''
             phpdoc= Template(phpdoc)
-            phpdoc = phpdoc.substitute({'variableName': variableName, 'paramType':  paramType, 'nullable':nullable})
+            phpdoc = phpdoc.substitute({'variableName': variableName, 'paramType':  paramType, 'nullable': nullable, 'comment': comment})
 
             fileContent += phpdoc
             fileContent += '    public function set' + MethodName + '('+declaredType+' ' + variableName + '): '+className+'Interface;' + f"\n"
@@ -125,16 +131,20 @@ for namespace in content:
         for attribute, value in classData['data'].items():
             MethodName = to_camel_case(attribute)
             variableName = '$'+lower_first_letter(MethodName)
-
+            comment = ''
+            if not comments.get(attribute) is None:
+                comment = comments.get(attribute)
             paramType, declaredType, nullable = getTypes(attribute, value, types)
 
             phpdoc = '''
     /**
+     * ${comment}
+     *
      * @return ${nullable}${paramType}
      */
 '''
             phpdoc= Template(phpdoc)
-            phpdoc = phpdoc.substitute({'variableName': variableName, 'paramType':  paramType, 'nullable': nullable})
+            phpdoc = phpdoc.substitute({'variableName': variableName, 'paramType':  paramType, 'nullable': nullable, 'comment': comment})
 
             fileContent += phpdoc
             fileContent += '    public function get' + MethodName + '(): '+ declaredType + ';' + f"\n"
@@ -143,7 +153,7 @@ for namespace in content:
 
         # create interface file
         print('Create data interface')
-        filePath = root_path + ifDir + className + 'Interface.php'
+        filePath = ifDir + className + 'Interface.php'
         print(filePath)
         f = open(filePath, "w")
         fileContent = ifTemplate.substitute({ 'className': className, 'fileContent': fileContent, 'namespace': namespace.strip('\\') })
@@ -206,7 +216,7 @@ for namespace in content:
 
         # create implementation file
         print('Create implementation class')
-        filePath = root_path + implDir + + className + '.php'
+        filePath = implDir + className + '.php'
         print(filePath)
         f = open(filePath, "w")
 
