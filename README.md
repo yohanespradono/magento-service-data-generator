@@ -1,5 +1,5 @@
 # magento-data-api-generator
-Generates Magento Data API Getters and Setters. 
+Generates Magento Service Data API and implementation Getters and Setters. 
 
 ## Description
 Are you tired having to create Magento data interface files and the implementation files over and over again? I am too.
