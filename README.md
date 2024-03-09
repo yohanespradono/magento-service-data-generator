@@ -36,12 +36,14 @@ See [order.yml](order.yml) to see the example
 
 ## Warning
 The sample above will override any files in
-```app/code/Vendor/MyModule/Api/Data/OrderRequestInterface.php
+```
+app/code/Vendor/MyModule/Api/Data/OrderRequestInterface.php
 app/code/Vendor/MyModule/Api/Data/OrderItemInterface.php
 app/code/Vendor/MyModule/Api/Data/CoordinateInterface.php
 app/code/Vendor/MyModule/Service/Data/OrderRequest.php
 app/code/Vendor/MyModule/Service/Data/OrderItem.php
-app/code/Vendor/MyModule/Service/Data/Coordinate.php```
+app/code/Vendor/MyModule/Service/Data/Coordinate.php
+```
 
 ## Limitations
 This script doesn't currently generate the \<preference\> in the di.xml. You still have to do it manually.
