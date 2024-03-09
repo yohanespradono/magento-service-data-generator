@@ -48,6 +48,17 @@ for namespace in content:
         print(f'Directory {path} doesn\'t exist')
         quit()
 
+    ifDir = root_path + path + '/Api/Data'
+    implDir = root_path + path + '/Service/Data'
+    if os.path.isdir(ifDir) == False:
+        print(f'Directory {ifDir} doesn\'t exist')
+        print('Creating directory')
+        os.makedirs(ifDir)
+    if os.path.isdir(implDir) == False:
+        print(f'Directory {implDir} doesn\'t exist')
+        print('Creating directory')
+        os.makedirs(implDir)
+
     classes = content[namespace]['classes']
     for classData in classes:
         className = classData['name']
