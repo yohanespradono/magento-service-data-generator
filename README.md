@@ -1,5 +1,5 @@
 # Magento Service Data Interface And Data Implementation Class Generator
-Generates Magento service data interface files and the implementation data class files including the setters and getters. 
+Generates Magento service data interface files and the implementation data class files including the setters and getters.
 
 ## Description
 Are you tired having to create Magento data interface files and the implementation files over and over again? I am too.
@@ -54,3 +54,4 @@ Test it on your empty module first.
 
 ## Limitations
 This script doesn't currently generate the \<preference\> in the di.xml. You still have to do it manually.
+

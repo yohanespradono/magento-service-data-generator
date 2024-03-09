@@ -1,5 +1,7 @@
 \Yohanes\Biteship:
   path: app/code/Yohanes/Biteship
+  iface_path: Api/Data
+  impl_path: Service/Data
   classes:
     - name: OrderRequest
       data: {"shipper_contact_name": "Amir", "shipper_contact_phone": "081277882932", "shipper_contact_email": "biteship@test.com", "shipper_organization": "Biteship Org Test", "origin_contact_name": "Amir", "origin_contact_phone": "081740781720", "origin_address": "Plaza Senayan, Jalan Asia Afrik...", "origin_note": "Deket pintu masuk STC", "origin_coordinate": { "latitude": -6.2253114, "longitude": 106.7993735 }, "origin_postal_code": 12440, "destination_contact_name": "John Doe", "destination_contact_phone": "08170032123", "destination_contact_email": "jon@test.com", "destination_address": "Lebak Bulus MRT...", "destination_note": "Near the gas station", "destination_coordinate": { "latitude": -6.28927, "longitude": 106.77492000000007 }, "destination_postal_code": 12950, "destination_cash_on_delivery": 500000, "destination_cash_on_delivery_type": "7_days", "courier_company": "sicepat", "courier_type": "reg", "courier_insurance": 500000, "delivery_type": "now", "order_note": "Please be careful", "metadata": {}, "items": [ { "name": "Black L", "description": "White Shirt", "value": 165000, "quantity": 1, "height": 10, "length": 10, "weight": 200, "width": 10 } ] }

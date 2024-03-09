@@ -68,13 +68,15 @@ with open(file) as stream:
 
 for namespace in content:
     path = content[namespace]['path']
+    iface_path = content[namespace]['iface_path']
+    impl_path = content[namespace]['impl_path']
     print('Check path')
     if os.path.isdir(root_path + path) == False:
         print(f'Directory {path} doesn\'t exist')
         quit()
 
-    ifDir = root_path + path + '/Api/Data'
-    implDir = root_path + path + '/Service/Data'
+    ifDir = root_path + path + '/' + iface_path
+    implDir = root_path + path + '/' + impl_path
     if os.path.isdir(ifDir) == False:
         print(f'Directory {ifDir} doesn\'t exist')
         print('Creating directory')
@@ -141,7 +143,7 @@ for namespace in content:
 
         # create interface file
         print('Create data interface')
-        filePath = root_path + path  + '/Api/Data/' + className + 'Interface.php' 
+        filePath = root_path + ifDir + className + 'Interface.php'
         print(filePath)
         f = open(filePath, "w")
         fileContent = ifTemplate.substitute({ 'className': className, 'fileContent': fileContent, 'namespace': namespace.strip('\\') })
@@ -204,7 +206,7 @@ for namespace in content:
 
         # create implementation file
         print('Create implementation class')
-        filePath = root_path + path  + '/Service/Data/' + className + '.php'
+        filePath = root_path + implDir + + className + '.php'
         print(filePath)
         f = open(filePath, "w")
 
