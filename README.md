@@ -24,19 +24,6 @@ Example:
 
 
 ## YAML FILE
-
-```yaml
-\Vendor\MyModule:
-  path: app/code/Vendor/MyModule
-  classes:
-    - name: OrderRequest
-      data: {JSON}
-    - name: OrderItem
-      data: {JSON}
-    - name: Coordinate
-      data: {JSON}
-```
-
 See [order.yml](order.yml) to see the example
 
 
